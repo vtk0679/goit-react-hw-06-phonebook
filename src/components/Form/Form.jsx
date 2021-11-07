@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { connect } from "react-redux";
-import { nanoid } from "nanoid";
 
 import actions from "../../redux/actions";
 
@@ -47,8 +46,7 @@ function Form({ onFormSubmit }) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  onFormSubmit: (name, number) =>
-    dispatch(actions.addItem({ name, number, id: nanoid() })),
+  onFormSubmit: (name, number) => dispatch(actions.addItem({ name, number })),
 });
 
 export default connect(null, mapDispatchToProps)(Form);

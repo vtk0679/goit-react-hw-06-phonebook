@@ -1,6 +1,14 @@
 import { createAction } from "@reduxjs/toolkit";
 
-const addItem = createAction("contactList/add");
+import { nanoid } from "nanoid";
+
+const addItem = createAction("contactList/add", ({ name, number }) => ({
+  payload: {
+    name,
+    number,
+    id: nanoid(),
+  },
+}));
 const deleteItem = createAction("contactList/delete");
 const changeFilter = createAction("contactList/changeFilter");
 
